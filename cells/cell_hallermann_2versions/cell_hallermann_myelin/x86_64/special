@@ -1,0 +1,13 @@
+#!/bin/sh
+if test "x${NRNHOME}" = "x" ; then
+	NRNHOME="/media/terror/code/source/neuron"
+fi
+if test "x${NRNBIN}" = "x" ; then
+	NRNBIN="/media/terror/code/source/neuron/x86_64/bin/"
+fi
+if test "" = "yes" ; then
+	NRNIV="${NRNBIN}nrniv.app/Contents/MacOS/nrniv"
+else
+	NRNIV="${NRNBIN}nrniv"
+fi
+"${NRNIV}" -dll "/media/terror/code/darpa/bisc/morphologies/cell_hallermann_myelin/x86_64/.libs/libnrnmech.so" "$@"
